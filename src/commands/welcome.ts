@@ -1,10 +1,9 @@
 import {Command} from '@oclif/command'
-import * as fs from 'fs'
 import * as inquirer from 'inquirer'
 import Chewy from 'chewy-lib'
 import * as chalk from 'chalk'
+import { Answers} from '../utils/types'
 import { cli } from 'cli-ux'
-const {execSync} = require('child_process')
 
 export default class Welcome extends Command {
   static description = 'Command to download required files'
@@ -13,10 +12,15 @@ export default class Welcome extends Command {
 
   async run() {
     const {args} = this.parse(Welcome)
-    let directory
-    let isAppsmith
-    let isRabbitMQ
-    let isContent
+    let directory: string = ''
+    let isAdmin: boolean = false
+    let isWorker: boolean = false
+    let isContent: boolean = false
+    let isMobile: boolean = false
+    let isGraphQL: boolean = false
+    let isAuth: boolean = false
+    let isServer: boolean = false
+
     if (args.installOption === 'minimal') {
       if (!directory) {
         const responses: any = await inquirer.prompt([{
@@ -27,8 +31,19 @@ export default class Welcome extends Command {
         }])
         directory = responses.name
       }
+      const answers: Answers = {
+        name: directory,
+        isAdmin: false,
+        isContent: false,
+        isGraphQL: false,
+        isServer: false,
+        isMobile: false,
+        isAuth: false,
+        isWorker: false
+      }
       Chewy.File.createProjectDirectory(directory)
       Chewy.Commands.installMinimalProject(directory)
+      Chewy.File.configFileGenerator(answers)
     }
     else if (args.installOption === 'all') {
       if (!directory) {
@@ -40,20 +55,31 @@ export default class Welcome extends Command {
         }])
         directory = responses.name
       }
+      const answers: Answers = {
+        name: directory,
+        isAdmin: true,
+        isContent: true,
+        isGraphQL: true,
+        isServer: true,
+        isMobile: true,
+        isAuth: true,
+        isWorker: true
+      }
       Chewy.File.createProjectDirectory(directory)
       Chewy.Commands.installAllApps(directory)
+      Chewy.File.configFileGenerator(answers)
     }
     else if (args.installOption === 'custom') {
       if (!directory) {
-        const responses: any = await inquirer.prompt([{
+        const responses: Answers = await inquirer.prompt([{
           name: 'name',
           message: 'what you want your project to be called',
           type: 'input',
           default: 'chewy-stack',
         },
           {
-            name: 'isAppsmith',
-            message: 'Do you want to install appsmith?',
+            name: 'isAdmin',
+            message: 'Do you want to install appsmith as admin?',
             type: 'confirm',
             default: 'Y',
           },
@@ -70,31 +96,55 @@ export default class Welcome extends Command {
             default: 'Y',
           },
           {
-            name: 'isRabbitMQ',
-            message: 'Do you want to install RabbitMQ?',
+            name: 'isMobile',
+            message: 'Do you want to install react-native mobile app module?',
+            type: 'confirm',
+            default: 'Y',
+          },
+          {
+            name: 'isGraphQL',
+            message: 'Do you want to install GraphQL as Database?',
+            type: 'confirm',
+            default: 'Y',
+          },
+          {
+            name: 'isAuth',
+            message: 'Do you want to install Auth system for authentication?',
+            type: 'confirm',
+            default: 'Y',
+          },
+          {
+            name: 'isWorker',
+            message: 'Do you want to install Worker module?',
             type: 'confirm',
             default: 'Y',
           }])
-        directory = responses.name
-        isAppsmith = responses.isAppsmith
-        isRabbitMQ = responses.isRabbitMQ
+        directory = responses.name || 'chewy-stack'
+        isAdmin = responses.isAdmin
+        isWorker = responses.isWorker
         isContent = responses.isContent
+        isMobile = responses.isMobile
+        isGraphQL = responses.isGraphQL
+        isServer = responses.isServer
+        isAuth = responses.isAuth
       }
-      const answers = {
-        isAppsmith: isAppsmith,
-        isRabbitMQ: isRabbitMQ,
-        isContent: isContent
+      const answers: Answers = {
+        name: directory,
+        isAdmin: isAdmin,
+        isContent: isContent,
+        isGraphQL: isGraphQL,
+        isServer: isServer,
+        isMobile: isMobile,
+        isAuth: isAuth,
+        isWorker: isWorker
       }
       Chewy.File.createProjectDirectory(directory)
-      Chewy.File.configFileGenerator(answers, directory)
+      Chewy.File.configFileGenerator(answers)
       Chewy.Commands.installCustomApps(directory)
 
       Chewy.File.envCreator(directory, 'client')
       Chewy.File.envCreator(directory, 'server')
-
-      Chewy.File.configFileGenerator(answers, directory)
-      Chewy.File.createConfig(directory)
-      this.log('directory is', directory, '----> and isAppsmith', isAppsmith)
+      this.log('directory is', directory, '----> and isAppsmith', isAdmin)
     }
     else {
       this.log(chalk.redBright('No option or invalid option provided'))
