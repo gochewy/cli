@@ -66,8 +66,9 @@ export default class Welcome extends Command {
         isWorker: true
       }
       Chewy.File.createProjectDirectory(directory)
-      Chewy.Commands.installAllApps(directory)
+      await Chewy.Commands.installAllApps(directory)
       Chewy.File.configFileGenerator(answers)
+      Chewy.File.createGitIgnore(directory)
     }
     else if (args.installOption === 'custom') {
       if (!directory) {
@@ -141,8 +142,11 @@ export default class Welcome extends Command {
       Chewy.File.createProjectDirectory(directory)
       Chewy.File.configFileGenerator(answers)
       Chewy.Commands.installCustomApps(directory)
+      if (answers.isAdmin) {
+        Chewy.File.createGitIgnore(directory)
+      }
 
-      Chewy.File.envCreator(directory, 'client')
+      Chewy.File.envCreator(directory, 'web')
       Chewy.File.envCreator(directory, 'server')
       this.log('directory is', directory, '----> and isAppsmith', isAdmin)
     }
