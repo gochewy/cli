@@ -1,18 +1,19 @@
 {
-  "name": "chewycli",
-  "description": "cli to manage chewy stack project",
+  "name": "chewy-cli",
+  "description": "CLI to create manage Chewy stack project",
   "version": "0.0.1",
-  "author": "swarn",
+  "author": "GoChewy Team",
   "bin": {
     "chewycli": "./bin/run"
   },
-  "bugs": "https://github.com/swarnchahal/chewycli/issues",
+  "bugs": "https://gitlab.com/ephemerecreative/chewy/cli/-/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "@types/inquirer": "^7.3.1",
     "chalk": "^4.1.0",
+    "chewy-lib": "https://gitlab.com/ephemerecreative/chewy/lib.git",
     "inquirer": "^8.0.0",
     "tslib": "^1"
   },
@@ -41,9 +42,10 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/swarnchahal/chewycli",
+  "homepage": "https://gitlab.com/ephemerecreative/chewy/cli#readme",
   "keywords": [
-    "oclif"
+    "Chewy",
+    "Chewy CLI"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -54,7 +56,10 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "swarnchahal/chewycli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ephemerecreative/chewy/cli.git"
+  },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
