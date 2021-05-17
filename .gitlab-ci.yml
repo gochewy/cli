@@ -2,7 +2,7 @@ image: node:latest
 stages:
   - deploy
 before_script:
-  - npm install -g typescript
+  - npm install
 
 deploy:
   stage: deploy

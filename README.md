@@ -19,7 +19,7 @@ $ npm install -g @gochewy/chewy-cli
 $ chewycli COMMAND
 running command...
 $ chewycli (-v|--version|version)
-@gochewy/chewy-cli/0.0.1 darwin-x64 node-v14.15.4
+@gochewy/chewy-cli/0.0.2 darwin-x64 node-v14.15.4
 $ chewycli --help [COMMAND]
 USAGE
   $ chewycli COMMAND
@@ -42,7 +42,7 @@ USAGE
   $ chewycli docker [ARGUMENT]
 ```
 
-_See code: [src/commands/docker.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.1/src/commands/docker.ts)_
+_See code: [src/commands/docker.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.2/src/commands/docker.ts)_
 
 ## `chewycli hello [FILE]`
 
@@ -62,7 +62,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.2/src/commands/hello.ts)_
 
 ## `chewycli help [COMMAND]`
 
@@ -90,5 +90,5 @@ USAGE
   $ chewycli welcome [INSTALLOPTION]
 ```
 
-_See code: [src/commands/welcome.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.1/src/commands/welcome.ts)_
+_See code: [src/commands/welcome.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.2/src/commands/welcome.ts)_
 <!-- commandsstop -->

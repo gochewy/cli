@@ -552,9 +552,9 @@ check-error@^1.0.2:
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
   integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
 
-"chewy-lib@https://gitlab.com/ephemerecreative/chewy/lib.git":
+"chewy-lib@file:chewy-lib-0.0.1.tgz":
   version "0.0.1"
-  resolved "https://gitlab.com/ephemerecreative/chewy/lib.git#10dbae08cf3e6423e9ba44a55929bf164e004b63"
+  resolved "file:chewy-lib-0.0.1.tgz#8e274137d21daa08ceca33772cc1b8dcaeceb416"
   dependencies:
     chalk "^4.1.0"
     find-up "^5.0.0"
