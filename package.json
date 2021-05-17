@@ -15,9 +15,7 @@
     "chalk": "^4.1.0",
     "chewy-lib": "https://gitlab.com/ephemerecreative/chewy/lib.git",
     "inquirer": "^8.0.0",
-    "tslib": "^1",
-    "ts-node": "^8",
-    "typescript": "^3.3"
+    "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
@@ -31,7 +29,9 @@
     "eslint-config-oclif-typescript": "^0.1",
     "globby": "^10",
     "mocha": "^5",
-    "nyc": "^14"
+    "nyc": "^14",
+    "ts-node": "^8",
+    "typescript": "^3.3"
   },
   "engines": {
     "node": ">=8.0.0"
