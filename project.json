@@ -1,0 +1,32 @@
+{
+  "modules": {
+    "admin": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/admin.git"
+    },
+    "content": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/content.git"
+    },
+    "graphql": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/graphql.git"
+    },
+    "auth": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/auth.git"
+    },
+    "server": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/server.git"
+    },
+    "worker": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/worker.git"
+    },
+    "mobile": {
+      "enabled": true,
+      "gitRepo": "https://github.com/gochewy/mobile.git"
+    }
+  }
+}
