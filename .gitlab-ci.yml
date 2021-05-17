@@ -1,12 +1,8 @@
 image: node:latest
 stages:
-  - install
   - deploy
-
-install:
-  stage: install
-  script:
-    - npm install
+before_script:
+  - npm install -g typescript
 
 deploy:
   stage: deploy
