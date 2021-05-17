@@ -1,5 +1,5 @@
 {
-  "name": "chewy-cli",
+  "name": "@gochewy/chewy-cli",
   "description": "CLI to create manage Chewy stack project",
   "version": "0.0.1",
   "author": "GoChewy Team",

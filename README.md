@@ -15,11 +15,11 @@ cli to manage chewy stack project
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g chewycli
+$ npm install -g @gochewy/chewy-cli
 $ chewycli COMMAND
 running command...
 $ chewycli (-v|--version|version)
-chewycli/0.0.1 darwin-x64 node-v14.15.4
+@gochewy/chewy-cli/0.0.1 darwin-x64 node-v14.15.4
 $ chewycli --help [COMMAND]
 USAGE
   $ chewycli COMMAND
@@ -28,27 +28,21 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`chewycli docker [FILE]`](#chewycli-docker-file)
+* [`chewycli docker [ARGUMENT]`](#chewycli-docker-argument)
 * [`chewycli hello [FILE]`](#chewycli-hello-file)
 * [`chewycli help [COMMAND]`](#chewycli-help-command)
-* [`chewycli hithere [FILE]`](#chewycli-hithere-file)
-* [`chewycli welcome [COMMAND]`](#chewycli-welcome-command)
+* [`chewycli welcome [INSTALLOPTION]`](#chewycli-welcome-installoption)
 
-## `chewycli docker [FILE]`
+## `chewycli docker [ARGUMENT]`
 
-describe the command here
+Command to run docker containers
 
 ```
 USAGE
-  $ chewycli docker [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  $ chewycli docker [ARGUMENT]
 ```
 
-_See code: [src/commands/docker.ts](https://github.com/swarnchahal/chewycli/blob/v0.0.1/src/commands/docker.ts)_
+_See code: [src/commands/docker.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.1/src/commands/docker.ts)_
 
 ## `chewycli hello [FILE]`
 
@@ -68,7 +62,7 @@ EXAMPLE
   hello world from ./src/hello.ts!
 ```
 
-_See code: [src/commands/hello.ts](https://github.com/swarnchahal/chewycli/blob/v0.0.1/src/commands/hello.ts)_
+_See code: [src/commands/hello.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.1/src/commands/hello.ts)_
 
 ## `chewycli help [COMMAND]`
 
@@ -87,30 +81,14 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.2/src/commands/help.ts)_
 
-## `chewycli hithere [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ chewycli hithere [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/hithere.ts](https://github.com/swarnchahal/chewycli/blob/v0.0.1/src/commands/hithere.ts)_
-
-## `chewycli welcome [COMMAND]`
+## `chewycli welcome [INSTALLOPTION]`
 
 Command to download required files
 
 ```
 USAGE
-  $ chewycli welcome [COMMAND]
+  $ chewycli welcome [INSTALLOPTION]
 ```
 
-_See code: [src/commands/welcome.ts](https://github.com/swarnchahal/chewycli/blob/v0.0.1/src/commands/welcome.ts)_
+_See code: [src/commands/welcome.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.1/src/commands/welcome.ts)_
 <!-- commandsstop -->
