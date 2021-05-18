@@ -2,6 +2,7 @@ image: node:latest
 stages:
   - deploy
 before_script:
+  - npm pack file:chewy-lib
   - npm install
 
 deploy:
