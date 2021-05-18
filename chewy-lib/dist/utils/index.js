@@ -3,7 +3,7 @@ exports.__esModule = true;
 exports.printInstallOptions = void 0;
 var chalk = require("chalk");
 var log = console.log;
-var printInstallOptions = function () {
+exports.printInstallOptions = function () {
     log();
     log(chalk.magenta("=============================="));
     log(chalk.magenta("===Chewy-CLI install options=="));
@@ -14,4 +14,3 @@ var printInstallOptions = function () {
     log(chalk.greenBright("To install with options to install modules use init custom"));
     log();
 };
-exports.printInstallOptions = printInstallOptions;

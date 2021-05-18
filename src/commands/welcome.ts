@@ -164,7 +164,7 @@ export default class Welcome extends Command {
       }
       Chewy.File.createProjectDirectory(directory)
       Chewy.File.configFileGenerator(answers)
-      await Chewy.Commands.installCustomApps(directory)
+      await Chewy.Commands.installCustomApps(directory, answers)
       if (answers.isAdmin) {
         Chewy.File.createGitIgnore(directory)
       }
