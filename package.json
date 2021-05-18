@@ -1,7 +1,7 @@
 {
   "name": "@gochewy/chewy-cli",
   "description": "CLI to create manage Chewy stack project",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "GoChewy Team",
   "bin": {
     "chewycli": "./bin/run"
