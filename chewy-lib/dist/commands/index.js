@@ -39,15 +39,13 @@ exports.__esModule = true;
 exports.installCustomApps = exports.installAllApps = exports.addSubtrees = exports.installMinimalProject = void 0;
 var child_process_1 = require("child_process");
 var modules = require('../../project.json').modules;
-var installMinimalProject = function (directory) {
+exports.installMinimalProject = function (directory) {
     child_process_1.execSync("git clone -b 22-setup-subtree-for-the-project https://gitlab.com/ephemerecreative/x-stack.git ./../" + directory);
 };
-exports.installMinimalProject = installMinimalProject;
-var addSubtrees = function (directory, module, url) {
+exports.addSubtrees = function (directory, module, url) {
     child_process_1.execSync("cd .. && cd " + directory + " && git subtree add --prefix " + module + " " + url + " main --squash");
 };
-exports.addSubtrees = addSubtrees;
-var installAllApps = function (directory) { return __awaiter(void 0, void 0, void 0, function () {
+exports.installAllApps = function (directory) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, exports.installMinimalProject(directory)];
@@ -60,17 +58,13 @@ var installAllApps = function (directory) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.installAllApps = installAllApps;
-var installCustomApps = function (directory) { return __awaiter(void 0, void 0, void 0, function () {
+exports.installCustomApps = function (directory, answers) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, exports.installMinimalProject(directory)
-                //await execSync(`cd .. && cd ${directory} && git subtree add --prefix appsmith https://gitlab.com/swarnjitchahal/appsmith.git temp --squash`)
-            ];
+            case 0: return [4 /*yield*/, exports.installMinimalProject(directory)];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
         }
     });
 }); };
-exports.installCustomApps = installCustomApps;

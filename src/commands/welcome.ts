@@ -3,7 +3,6 @@ import * as inquirer from 'inquirer'
 import Chewy from 'chewy-lib'
 import * as chalk from 'chalk'
 import { Answers} from '../utils/types'
-import { cli } from 'cli-ux'
 
 export default class Welcome extends Command {
   static description = 'Command to download required files'
@@ -13,6 +12,8 @@ export default class Welcome extends Command {
   async run() {
     const {args} = this.parse(Welcome)
     let directory: string = ''
+    let isAnalytics: boolean = false
+    let isBI: boolean = false
     let isAdmin: boolean = false
     let isWorker: boolean = false
     let isContent: boolean = false
@@ -27,12 +28,14 @@ export default class Welcome extends Command {
           name: 'name',
           message: 'what you want your project to be called',
           type: 'input',
-          default: 'chewy-stack',
+          default: 'go-chewy',
         }])
         directory = responses.name
       }
       const answers: Answers = {
         name: directory,
+        isAnalytics: false,
+        isBI: false,
         isAdmin: false,
         isContent: false,
         isGraphQL: false,
@@ -57,6 +60,8 @@ export default class Welcome extends Command {
       }
       const answers: Answers = {
         name: directory,
+        isAnalytics: true,
+        isBI: true,
         isAdmin: true,
         isContent: true,
         isGraphQL: true,
@@ -120,9 +125,24 @@ export default class Welcome extends Command {
             message: 'Do you want to install Worker module?',
             type: 'confirm',
             default: 'Y',
-          }])
+          },
+          {
+            name: 'isBI',
+            message: 'Do you want to install Metabase for Business Intelligence?',
+            type: 'confirm',
+            default: 'Y',
+          },
+          {
+            name: 'isAnalytics',
+            message: 'Do you want to install Posthog for Analytics?',
+            type: 'confirm',
+            default: 'Y',
+          },
+        ])
         directory = responses.name || 'chewy-stack'
         isAdmin = responses.isAdmin
+        isAnalytics = responses.isAnalytics
+        isBI = responses.isBI
         isWorker = responses.isWorker
         isContent = responses.isContent
         isMobile = responses.isMobile
@@ -132,17 +152,19 @@ export default class Welcome extends Command {
       }
       const answers: Answers = {
         name: directory,
-        isAdmin: isAdmin,
-        isContent: isContent,
-        isGraphQL: isGraphQL,
-        isServer: isServer,
-        isMobile: isMobile,
-        isAuth: isAuth,
-        isWorker: isWorker
+        isBI,
+        isAdmin,
+        isContent,
+        isGraphQL,
+        isServer,
+        isMobile,
+        isAuth,
+        isWorker,
+        isAnalytics
       }
       Chewy.File.createProjectDirectory(directory)
       Chewy.File.configFileGenerator(answers)
-      Chewy.Commands.installCustomApps(directory)
+      await Chewy.Commands.installCustomApps(directory, answers)
       if (answers.isAdmin) {
         Chewy.File.createGitIgnore(directory)
       }
