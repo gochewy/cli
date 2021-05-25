@@ -1,5 +1,5 @@
 import {Command, flags} from '@oclif/command'
-import Chewy from 'chewy-lib'
+import Chewy from 'chewy-lib-local'
 
 export default class Hello extends Command {
   static description = 'describe the command here'

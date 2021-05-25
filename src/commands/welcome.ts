@@ -1,6 +1,6 @@
 import {Command} from '@oclif/command'
 import * as inquirer from 'inquirer'
-import Chewy from 'chewy-lib'
+import Chewy from 'chewy-lib-local'
 import * as chalk from 'chalk'
 import { Answers} from '../utils/types'
 
@@ -38,13 +38,13 @@ export default class Welcome extends Command {
         'business-intelligence': false,
         admin: false,
         content: false,
-        graphQL: false,
+        graphql: false,
         server: false,
         mobile: false,
         auth: false,
         worker: false
       }
-      Chewy.Commands.installMinimalProject(answers)
+      await Chewy.Commands.installMinimalProject(answers)
     }
     else if (args.installOption === 'all') {
       if (!directory) {
@@ -62,7 +62,7 @@ export default class Welcome extends Command {
         'business-intelligence': true,
         admin: true,
         content: true,
-        graphQL: true,
+        graphql: true,
         server: true,
         mobile: true,
         auth: true,
@@ -151,7 +151,7 @@ export default class Welcome extends Command {
         'business-intelligence': isBI,
         admin: isAdmin,
         content: isContent,
-        graphQL: isGraphQL,
+        graphql: isGraphQL,
         server: isServer,
         mobile: isMobile,
         auth: isAuth,
