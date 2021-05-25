@@ -1,12 +1,12 @@
 export type Answers = {
   name: string;
-  isAnalytics: boolean;
-  isBI: boolean;
-  isAdmin: boolean;
-  isContent: boolean;
-  isGraphQL: boolean;
-  isServer: boolean;
-  isMobile: boolean;
-  isAuth: boolean;
-  isWorker: boolean;
+  analytics: boolean;
+  'business-intelligence': boolean;
+  admin: boolean;
+  content: boolean;
+  graphQL: boolean;
+  server: boolean;
+  mobile: boolean;
+  auth: boolean;
+  worker: boolean;
 }
