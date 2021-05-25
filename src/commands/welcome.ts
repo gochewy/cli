@@ -1,6 +1,6 @@
 import {Command} from '@oclif/command'
 import * as inquirer from 'inquirer'
-import Chewy from 'chewy-lib'
+import Chewy from 'chewy-lib-l'
 import * as chalk from 'chalk'
 import { Answers} from '../utils/types'
 
@@ -34,19 +34,17 @@ export default class Welcome extends Command {
       }
       const answers: Answers = {
         name: directory,
-        isAnalytics: false,
-        isBI: false,
-        isAdmin: false,
-        isContent: false,
-        isGraphQL: false,
-        isServer: false,
-        isMobile: false,
-        isAuth: false,
-        isWorker: false
+        analytics: false,
+        'business-intelligence': false,
+        admin: false,
+        content: false,
+        graphql: false,
+        server: false,
+        mobile: false,
+        auth: false,
+        worker: false
       }
-      Chewy.File.createProjectDirectory(directory)
-      Chewy.Commands.installMinimalProject(directory)
-      Chewy.File.configFileGenerator(answers)
+      await Chewy.Commands.installMinimalProject(answers)
     }
     else if (args.installOption === 'all') {
       if (!directory) {
@@ -60,25 +58,23 @@ export default class Welcome extends Command {
       }
       const answers: Answers = {
         name: directory,
-        isAnalytics: true,
-        isBI: true,
-        isAdmin: true,
-        isContent: true,
-        isGraphQL: true,
-        isServer: true,
-        isMobile: true,
-        isAuth: true,
-        isWorker: true
+        analytics: true,
+        'business-intelligence': true,
+        admin: true,
+        content: true,
+        graphql: true,
+        server: true,
+        mobile: true,
+        auth: true,
+        worker: true
       }
-      Chewy.File.createProjectDirectory(directory)
-      await Chewy.Commands.installAllApps(directory)
-      Chewy.File.configFileGenerator(answers)
-      Chewy.File.createGitIgnore(directory)
+      await Chewy.Commands.installAllApps(answers)
+      Chewy.File.createGitIgnoreAdmin(directory)
       Chewy.File.createAppConfigExpo(answers)
     }
     else if (args.installOption === 'custom') {
       if (!directory) {
-        const responses: Answers = await inquirer.prompt([{
+        const responses = await inquirer.prompt([{
           name: 'name',
           message: 'what you want your project to be called',
           type: 'input',
@@ -152,27 +148,25 @@ export default class Welcome extends Command {
       }
       const answers: Answers = {
         name: directory,
-        isBI,
-        isAdmin,
-        isContent,
-        isGraphQL,
-        isServer,
-        isMobile,
-        isAuth,
-        isWorker,
-        isAnalytics
+        'business-intelligence': isBI,
+        admin: isAdmin,
+        content: isContent,
+        graphql: isGraphQL,
+        server: isServer,
+        mobile: isMobile,
+        auth: isAuth,
+        worker: isWorker,
+        analytics: isAnalytics
       }
-      Chewy.File.createProjectDirectory(directory)
-      Chewy.File.configFileGenerator(answers)
-      await Chewy.Commands.installCustomApps(directory, answers)
-      if (answers.isAdmin) {
-        Chewy.File.createGitIgnore(directory)
+      await Chewy.Commands.installCustomApps(answers)
+      if (answers.admin) {
+        Chewy.File.createGitIgnoreAdmin(directory)
       }
-      if (answers.isMobile) {
+      if (answers.mobile) {
         Chewy.File.createAppConfigExpo(answers)
       }
-      Chewy.File.envCreator(directory, 'web')
-      Chewy.File.envCreator(directory, 'server')
+      //Chewy.File.envCreator(directory, 'web')
+      //Chewy.File.envCreator(directory, 'server')
       this.log('directory is', directory, '----> and isAppsmith', isAdmin)
     }
     else {
