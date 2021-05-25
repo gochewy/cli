@@ -13,7 +13,7 @@
     "@oclif/plugin-help": "^3",
     "@types/inquirer": "^7.3.1",
     "chalk": "^4.1.0",
-    "chewy-lib-local": "file:chewy-lib-local-0.0.1.tgz",
+    "chewy-lib-l": "file:chewy-lib-l-0.0.1.tgz",
     "inquirer": "^8.0.0",
     "tslib": "^1"
   },

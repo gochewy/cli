@@ -1,6 +1,6 @@
 import {Command} from '@oclif/command'
 import { execSync } from 'child_process'
-import Chewy from 'chewy-lib-local'
+import Chewy from 'chewy-lib-l'
 
 export default class Docker extends Command {
   static description = 'Command to run docker containers'

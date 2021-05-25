@@ -1,6 +1,6 @@
 import {Command} from '@oclif/command'
 import * as inquirer from 'inquirer'
-import Chewy from 'chewy-lib-local'
+import Chewy from 'chewy-lib-l'
 import * as chalk from 'chalk'
 import { Answers} from '../utils/types'
 
