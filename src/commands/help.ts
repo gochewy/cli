@@ -1,14 +1,7 @@
 import {Command, flags} from '@oclif/command'
-import Chewy from 'chewy-lib-l'
 
-export default class Hello extends Command {
+export default class Help extends Command {
   static description = 'describe the command here'
-
-  static examples = [
-    `$ chewycli hello
-hello world from ./src/hello.ts!
-`,
-  ]
 
   static flags = {
     help: flags.help({char: 'h'}),
@@ -21,11 +14,10 @@ hello world from ./src/hello.ts!
   static args = [{name: 'file'}]
 
   async run() {
-    const {args, flags} = this.parse(Hello)
+    const {args, flags} = this.parse(Help)
 
     const name = flags.name ?? 'world'
-    // @ts-ignore
-    this.log(Chewy.File.checkFile())
+    this.log(`hello ${name} from /Users/swarnchahal/chewycli/src/commands/help.ts`)
     if (args.file && flags.force) {
       this.log(`you input --force and --file: ${args.file}`)
     }
