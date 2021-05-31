@@ -1,6 +1,6 @@
 {
-  "name": "chewy-lib-l",
-  "version": "0.0.1",
+  "name": "chewy-lib",
+  "version": "0.0.5",
   "description": "Chewy lib",
   "main": "./dist/index.js",
   "scripts": {

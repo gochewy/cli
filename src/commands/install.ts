@@ -1,16 +1,16 @@
 import {Command} from '@oclif/command'
 import * as inquirer from 'inquirer'
-import Chewy from 'chewy-lib-l'
+import Chewy from 'chewy-lib'
 import * as chalk from 'chalk'
 import { Answers} from '../utils/types'
 
-export default class Welcome extends Command {
+export default class Install extends Command {
   static description = 'Command to download required files'
 
   static args = [{name: 'installOption'}]
 
   async run() {
-    const {args} = this.parse(Welcome)
+    const {args} = this.parse(Install)
     let directory: string = ''
     let isAnalytics: boolean = false
     let isBI: boolean = false
