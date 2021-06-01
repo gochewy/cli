@@ -1,6 +1,6 @@
 {
   "name": "@gochewy/chewy-cli",
-  "description": "CLI to create manage Chewy stack project",
+  "description": "CLI to create and manage Chewy stack project",
   "version": "0.0.4",
   "author": "GoChewy Team",
   "bin": {
@@ -13,7 +13,7 @@
     "@oclif/plugin-help": "^3",
     "@types/inquirer": "^7.3.1",
     "chalk": "^4.1.0",
-    "chewy-lib": "file:chewy-lib-0.0.5.tgz",
+    "chewy-lib": "file:chewy-lib-0.0.6.tgz",
     "inquirer": "^8.0.0",
     "tslib": "^1"
   },

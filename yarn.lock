@@ -552,9 +552,9 @@ check-error@^1.0.2:
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
   integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
 
-"chewy-lib@file:chewy-lib-0.0.5.tgz":
-  version "0.0.5"
-  resolved "file:chewy-lib-0.0.5.tgz#201b36aff5d39bb304856efd1aa5713e0f4d5e00"
+"chewy-lib@file:chewy-lib-0.0.6.tgz":
+  version "0.0.6"
+  resolved "file:chewy-lib-0.0.6.tgz#87d07b09e3e0d8aa87c995429e665dce96d106d2"
   dependencies:
     chalk "^4.1.0"
     find-up "^5.0.0"
