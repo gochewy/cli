@@ -19,7 +19,7 @@ $ npm install -g @gochewy/chewy-cli
 $ chewycli COMMAND
 running command...
 $ chewycli (-v|--version|version)
-@gochewy/chewy-cli/0.0.4 darwin-x64 node-v14.15.4
+@gochewy/chewy-cli/0.0.7 darwin-x64 node-v14.15.4
 $ chewycli --help [COMMAND]
 USAGE
   $ chewycli COMMAND
@@ -41,7 +41,7 @@ USAGE
   $ chewycli docker [ARGUMENT]
 ```
 
-_See code: [src/commands/docker.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.4/src/commands/docker.ts)_
+_See code: [src/commands/docker.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.7/src/commands/docker.ts)_
 
 ## `chewycli help [COMMAND]`
 
@@ -69,7 +69,7 @@ USAGE
   $ chewycli install [INSTALLOPTION]
 ```
 
-_See code: [src/commands/install.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.4/src/commands/install.ts)_
+_See code: [src/commands/install.ts](https://gitlab.com/ephemerecreative/chewy/cli/blob/v0.0.7/src/commands/install.ts)_
 <!-- commandsstop -->
 * [`chewycli docker [ARGUMENT]`](#chewycli-docker-argument)
 * [`chewycli install [FILE]`](#chewycli-install-file)

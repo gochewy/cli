@@ -1,7 +1,7 @@
 {
   "name": "@gochewy/chewy-cli",
   "description": "CLI to create and manage Chewy stack project",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "GoChewy Team",
   "bin": {
     "chewycli": "./bin/run"
@@ -40,7 +40,8 @@
     "/bin",
     "/lib",
     "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
+    "/oclif.manifest.json",
+    "/chewy-lib-0.0.8.tgz"
   ],
   "homepage": "https://gitlab.com/ephemerecreative/chewy/cli#readme",
   "keywords": [
@@ -61,7 +62,8 @@
     "url": "git+https://gitlab.com/ephemerecreative/chewy/cli.git"
   },
   "scripts": {
-    "postpack": "rm -f oclif.manifest.json && npm pack file:chewy-lib ",
+    "postpack": "rm -f oclif.manifest.json",
+    "prepare": "npm pack file:chewy-lib",
     "posttest": "eslint . --ext .ts --config .eslintrc",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
