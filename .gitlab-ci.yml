@@ -8,7 +8,7 @@ before_script:
 deploy:
   stage: deploy
   only:
-    - tags
+    - main
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm publish
