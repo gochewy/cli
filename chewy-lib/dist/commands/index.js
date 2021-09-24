@@ -41,40 +41,39 @@ var child_process_1 = require("child_process");
 var path = require("path");
 var files_1 = require("../files");
 var modules = require('../../project.json').modules;
-var config = require(path.resolve(process.cwd(), "chewy.json"));
 var initGitRepo = function (directory) {
-    child_process_1.execSync("cd " + directory + " && git init && git add . && git commit --allow-empty -n -m \"add subtree\"");
+    (0, child_process_1.execSync)("cd " + directory + " && git init && git add . && git commit --allow-empty -n -m \"add subtree\"");
 };
 exports.initGitRepo = initGitRepo;
 var addSubtrees = function (directory, module, url) {
-    child_process_1.execSync("cd " + directory + " && git subtree add --prefix " + module + " " + url + " main --squash");
+    (0, child_process_1.execSync)("cd " + directory + " && git subtree add --prefix " + module + " " + url + " main --squash");
 };
 exports.addSubtrees = addSubtrees;
 var installMinimalProject = function (answers) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, files_1.createProjectDirectory(answers.name)];
+            case 0: return [4 /*yield*/, (0, files_1.createProjectDirectory)(answers.name)];
             case 1:
                 _a.sent();
-                return [4 /*yield*/, exports.initGitRepo(answers.name)
+                return [4 /*yield*/, (0, exports.initGitRepo)(answers.name)
                     // Todo -> Decide if we want search and storage in install options
                 ];
             case 2:
                 _a.sent();
                 // Todo -> Decide if we want search and storage in install options
-                return [4 /*yield*/, exports.addSubtrees(answers.name, 'web', modules['web'].gitRepo)];
+                return [4 /*yield*/, (0, exports.addSubtrees)(answers.name, 'web', modules['web'].gitRepo)];
             case 3:
                 // Todo -> Decide if we want search and storage in install options
                 _a.sent();
-                return [4 /*yield*/, exports.addSubtrees(answers.name, 'search', modules['search'].gitRepo)];
+                return [4 /*yield*/, (0, exports.addSubtrees)(answers.name, 'search', modules['search'].gitRepo)];
             case 4:
                 _a.sent();
-                return [4 /*yield*/, exports.addSubtrees(answers.name, 'storage', modules['storage'].gitRepo)];
+                return [4 /*yield*/, (0, exports.addSubtrees)(answers.name, 'storage', modules['storage'].gitRepo)];
             case 5:
                 _a.sent();
-                files_1.configFileGenerator(answers);
-                files_1.rootGitIgnore(answers.name);
-                files_1.rootReadmeFile(answers.name);
+                (0, files_1.configFileGenerator)(answers);
+                (0, files_1.rootGitIgnore)(answers.name);
+                (0, files_1.rootReadmeFile)(answers.name);
                 return [2 /*return*/];
         }
     });
@@ -83,12 +82,12 @@ exports.installMinimalProject = installMinimalProject;
 var installAllApps = function (answers) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, exports.installMinimalProject(answers)];
+            case 0: return [4 /*yield*/, (0, exports.installMinimalProject)(answers)];
             case 1:
                 _a.sent();
                 Object.keys(modules).map(function (module) {
                     if (module !== 'web') {
-                        exports.addSubtrees(answers.name, module, modules[module].gitRepo);
+                        (0, exports.addSubtrees)(answers.name, module, modules[module].gitRepo);
                     }
                 });
                 return [2 /*return*/];
@@ -100,7 +99,7 @@ var installCustomApps = function (answers) { return __awaiter(void 0, void 0, vo
     var answer;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, exports.installMinimalProject(answers)];
+            case 0: return [4 /*yield*/, (0, exports.installMinimalProject)(answers)];
             case 1:
                 _a.sent();
                 for (answer in answers) {
@@ -108,7 +107,7 @@ var installCustomApps = function (answers) { return __awaiter(void 0, void 0, vo
                         if (answer !== 'name') {
                             console.log(modules[answer]);
                             if (modules[answer].enabled === true)
-                                exports.addSubtrees(answers.name, answer, modules[answer].gitRepo);
+                                (0, exports.addSubtrees)(answers.name, answer, modules[answer].gitRepo);
                         }
                     }
                 }
@@ -118,6 +117,7 @@ var installCustomApps = function (answers) { return __awaiter(void 0, void 0, vo
 }); };
 exports.installCustomApps = installCustomApps;
 var dockerCommandRunner = function (cmd) {
+    var config = require(path.resolve(process.cwd(), "chewy.json"));
     var modules = config.modules;
     var string = '';
     Object.entries(modules).forEach(function (_a) {
@@ -127,7 +127,7 @@ var dockerCommandRunner = function (cmd) {
         }
     });
     var command = "docker-compose -f docker-compose.yml" + string + " " + cmd;
-    child_process_1.exec("" + command, function (error, stdout, stderr) {
+    (0, child_process_1.exec)("" + command, function (error, stdout, stderr) {
         if (error) {
             console.error("Error: " + error);
         }
@@ -137,10 +137,10 @@ var dockerCommandRunner = function (cmd) {
 };
 exports.dockerCommandRunner = dockerCommandRunner;
 var startDocker = function () {
-    exports.dockerCommandRunner('up -d');
+    (0, exports.dockerCommandRunner)('up -d');
 };
 exports.startDocker = startDocker;
 var stopDocker = function () {
-    exports.dockerCommandRunner('down');
+    (0, exports.dockerCommandRunner)('down');
 };
 exports.stopDocker = stopDocker;
