@@ -8,12 +8,9 @@
   },
   "bugs": "https://gitlab.com/ephemerecreative/chewy/cli/-/issues",
   "dependencies": {
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
-    "@oclif/plugin-help": "^3",
     "@types/inquirer": "^7.3.1",
     "chalk": "^4.1.0",
-    "chewy-lib": "file:chewy-lib-0.0.8.tgz",
+    "chewy-lib": "../lib",
     "inquirer": "^8.0.0",
     "tslib": "^1"
   },
