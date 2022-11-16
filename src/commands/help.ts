@@ -17,7 +17,6 @@ export default class Help extends Command {
     const {args, flags} = this.parse(Help)
 
     const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /Users/swarnchahal/chewycli/src/commands/help.ts`)
     if (args.file && flags.force) {
       this.log(`you input --force and --file: ${args.file}`)
     }
