@@ -8,9 +8,12 @@
   },
   "bugs": "https://gitlab.com/ephemerecreative/chewy/cli/-/issues",
   "dependencies": {
+    "@oclif/core": "^1.21.0",
+    "@oclif/plugin-help": "^5.1.20",
+    "@oclif/plugin-plugins": "^2.1.8",
     "@types/inquirer": "^7.3.1",
     "chalk": "^4.1.0",
-    "chewy-lib": "../lib",
+    "chewy-lib": "/workspace/chewy-global/lib",
     "inquirer": "^8.0.0",
     "tslib": "^1"
   },
@@ -37,8 +40,7 @@
     "/bin",
     "/lib",
     "/npm-shrinkwrap.json",
-    "/oclif.manifest.json",
-    "/chewy-lib-0.0.8.tgz"
+    "/oclif.manifest.json"
   ],
   "homepage": "https://gitlab.com/ephemerecreative/chewy/cli#readme",
   "keywords": [
@@ -59,12 +61,13 @@
     "url": "git+https://gitlab.com/ephemerecreative/chewy/cli.git"
   },
   "scripts": {
-    "postpack": "rm -f oclif.manifest.json",
-    "prepare": "npm pack file:chewy-lib",
-    "posttest": "eslint . --ext .ts --config .eslintrc",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
   },
   "types": "lib/index.d.ts"
 }
