@@ -1,19 +1,28 @@
-import {Command} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 
-export default class Dev extends Command {
-  static description = 'Dev'
+export default class DevIndex extends Command {
+  static description = 'describe the command here'
 
   static examples = [
-    `
-chewy dev
-`,
+    '<%= config.bin %> <%= command.id %>',
   ]
 
-  static flags = {}
+  static flags = {
+    // flag with a value (-n, --name=VALUE)
+    name: Flags.string({char: 'n', description: 'name to print'}),
+    // flag with no value (-f, --force)
+    force: Flags.boolean({char: 'f'}),
+  }
 
-  static args = [
-  ]
+  static args = [{name: 'file'}]
 
-  async run(): Promise<void> {
+  public async run(): Promise<void> {
+    const {args, flags} = await this.parse(DevIndex)
+
+    const name = flags.name ?? 'world'
+    this.log(`hello ${name} from /workspace/chewy-global/cli/src/commands/dev/index.ts`)
+    if (args.file && flags.force) {
+      this.log(`you input --force and --file: ${args.file}`)
+    }
   }
 }
