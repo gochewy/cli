@@ -16,11 +16,11 @@ oclif example Hello World CLI
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @gochewy/chewy-cli
+$ npm install -g @gochewy/cli
 $ chewy COMMAND
 running command...
 $ chewy (--version)
-@gochewy/chewy-cli/0.0.0 linux-x64 node-v16.17.1
+@gochewy/cli/0.1.1 linux-x64 node-v16.17.1
 $ chewy --help [COMMAND]
 USAGE
   $ chewy COMMAND
@@ -29,9 +29,11 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`chewy hello PERSON`](#chewy-hello-person)
-* [`chewy hello world`](#chewy-hello-world)
+* [`chewy create [FILE]`](#chewy-create-file)
+* [`chewy dev [FILE]`](#chewy-dev-file)
 * [`chewy help [COMMAND]`](#chewy-help-command)
+* [`chewy init [PATH]`](#chewy-init-path)
+* [`chewy install [FILE]`](#chewy-install-file)
 * [`chewy plugins`](#chewy-plugins)
 * [`chewy plugins:install PLUGIN...`](#chewy-pluginsinstall-plugin)
 * [`chewy plugins:inspect PLUGIN...`](#chewy-pluginsinspect-plugin)
@@ -42,45 +44,47 @@ USAGE
 * [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin-2)
 * [`chewy plugins update`](#chewy-plugins-update)
 
-## `chewy hello PERSON`
+## `chewy create [FILE]`
 
-Say hello
+describe the command here
 
 ```
 USAGE
-  $ chewy hello [PERSON] -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
+  $ chewy create [FILE] [-n <value>] [-f]
 
 FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  -f, --force
+  -n, --name=<value>  name to print
 
 DESCRIPTION
-  Say hello
+  describe the command here
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ chewy create
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/gochewy/cli/blob/v0.0.0/dist/commands/hello/index.ts)_
+_See code: [dist/commands/create/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/create/index.ts)_
 
-## `chewy hello world`
+## `chewy dev [FILE]`
 
-Say hello world
+describe the command here
 
 ```
 USAGE
-  $ chewy hello world
+  $ chewy dev [FILE] [-n <value>] [-f]
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
 
 DESCRIPTION
-  Say hello world
+  describe the command here
 
 EXAMPLES
-  $ chewy hello world
-  hello world! (./src/commands/hello/world.ts)
+  $ chewy dev
 ```
+
+_See code: [dist/commands/dev/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/dev/index.ts)_
 
 ## `chewy help [COMMAND]`
 
@@ -101,6 +105,50 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.19/src/commands/help.ts)_
+
+## `chewy init [PATH]`
+
+describe the command here
+
+```
+USAGE
+  $ chewy init [PATH] -n <value>
+
+ARGUMENTS
+  PATH  [default: chewy-project] path to create project in
+
+FLAGS
+  -n, --name=<value>  (required) project name (kebab-cased)
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ chewy init
+```
+
+_See code: [dist/commands/init/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/init/index.ts)_
+
+## `chewy install [FILE]`
+
+describe the command here
+
+```
+USAGE
+  $ chewy install [FILE] [-n <value>] [-f]
+
+FLAGS
+  -f, --force
+  -n, --name=<value>  name to print
+
+DESCRIPTION
+  describe the command here
+
+EXAMPLES
+  $ chewy install
+```
+
+_See code: [dist/commands/install/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/install/index.ts)_
 
 ## `chewy plugins`
 

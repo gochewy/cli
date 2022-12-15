@@ -4,7 +4,7 @@
   "description": "CLI to create and manage Chewy Stack projects.",
   "author": "Ephemere Creative Ltd",
   "bin": {
-    "chewy": "./bin/run"
+    "chewy": "./bin/chewy"
   },
   "homepage": "https://github.com/gochewy/cli",
   "license": "AGPL-3.0",
