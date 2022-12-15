@@ -1,65 +1,59 @@
 {
-  "name": "@gochewy/chewy-cli",
-  "description": "CLI to create and manage Chewy stack project",
-  "version": "0.0.8",
-  "author": "GoChewy Team",
+  "name": "@gochewy/cli",
+  "version": "0.1.1",
+  "description": "CLI to create and manage Chewy Stack projects.",
+  "author": "Ephemere Creative Ltd",
   "bin": {
     "chewy": "./bin/run"
   },
-  "bugs": "https://gitlab.com/ephemerecreative/chewy/cli/-/issues",
+  "homepage": "https://github.com/gochewy/cli",
+  "license": "AGPL-3.0",
+  "main": "dist/index.js",
+  "repository": "gochewy/cli",
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
   "dependencies": {
     "@oclif/core": "^1.21.0",
-    "@oclif/plugin-help": "^5.1.20",
-    "@oclif/plugin-plugins": "^2.1.8",
-    "@types/inquirer": "^9",
-    "chalk": "^4.1.0",
-    "chewy-lib": "/workspace/chewy-global/lib",
-    "inquirer": "^9"
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^2.1.7",
+    "chewy-lib": "file:/workspace/chewy-global/lib",
+    "colorette": "^2.0.19",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@oclif/test": "^2.2.2",
+    "@oclif/test": "^2.2.13",
     "@types/chai": "^4",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.64",
+    "@types/node": "^16.18.7",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
     "eslint-config-oclif-typescript": "^1.0.3",
-    "globby": "^10",
     "mocha": "^9",
-    "nyc": "^14",
     "oclif": "^3",
     "shx": "^0.3.3",
     "ts-node": "^10.9.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.8.4"
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
   },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "files": [
-    "/bin",
-    "/lib",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
-  ],
-  "homepage": "https://gitlab.com/ephemerecreative/chewy/cli#readme",
-  "keywords": [
-    "Chewy",
-    "Chewy CLI"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
   "oclif": {
-    "commands": "./lib/commands",
     "bin": "chewy",
+    "dirname": "chewy",
+    "commands": "./dist/commands",
     "plugins": [
-      "@oclif/plugin-help"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/ephemerecreative/chewy/cli.git"
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "hello": {
+        "description": "Say hello to the world and others"
+      }
+    }
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
@@ -70,5 +64,12 @@
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "types": "lib/index.d.ts"
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "bugs": "https://github.com/gochewy/cli/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts"
 }

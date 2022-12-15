@@ -1,4 +1,6 @@
 import {Command, Flags} from '@oclif/core'
+import * as colorette from 'colorette'
+// import resourceNameSchema from 'chewy-lib/dist'
 
 export default class InitIndex extends Command {
   static description = 'describe the command here'
@@ -9,20 +11,16 @@ export default class InitIndex extends Command {
 
   static flags = {
     // flag with a value (-n, --name=VALUE)
-    name: Flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: Flags.boolean({char: 'f'}),
+    name: Flags.string({char: 'n', description: 'project name (kebab-cased)', required: true}),
   }
 
-  static args = [{name: 'file'}]
+  static args = [{name: 'path', description: 'path to create project in', default: 'chewy-project'}]
 
   public async run(): Promise<void> {
     const {args, flags} = await this.parse(InitIndex)
-
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /workspace/chewy-global/cli/src/commands/init/index.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+    const {name} = flags
+    const path: string = args[0]
+    // resourceNameSchema.vali(name)
+    console.log(colorette.green(`Creating project ${name} in ${path}`))
   }
 }

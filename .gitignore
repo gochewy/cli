@@ -6,6 +6,4 @@
 /package-lock.json
 /tmp
 node_modules
-.DS_Store
-.idea
-chewy-lib-0.0.8.tgz
+oclif.manifest.json
