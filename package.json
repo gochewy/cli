@@ -1,6 +1,6 @@
 {
   "name": "@gochewy/cli",
-  "version": "0.1.1",
+  "version": "0.1.1-beta.1",
   "description": "CLI to create and manage Chewy Stack projects.",
   "author": "Ephemere Creative Ltd",
   "bin": {

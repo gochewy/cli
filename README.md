@@ -20,7 +20,7 @@ $ npm install -g @gochewy/cli
 $ chewy COMMAND
 running command...
 $ chewy (--version)
-@gochewy/cli/0.1.1 linux-x64 node-v16.17.1
+@gochewy/cli/0.1.1-beta.1 linux-x64 node-v16.17.1
 $ chewy --help [COMMAND]
 USAGE
   $ chewy COMMAND
@@ -63,7 +63,7 @@ EXAMPLES
   $ chewy create
 ```
 
-_See code: [dist/commands/create/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/create/index.ts)_
+_See code: [dist/commands/create/index.ts](https://github.com/gochewy/cli/blob/v0.1.1-beta.1/dist/commands/create/index.ts)_
 
 ## `chewy dev [FILE]`
 
@@ -84,7 +84,7 @@ EXAMPLES
   $ chewy dev
 ```
 
-_See code: [dist/commands/dev/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/dev/index.ts)_
+_See code: [dist/commands/dev/index.ts](https://github.com/gochewy/cli/blob/v0.1.1-beta.1/dist/commands/dev/index.ts)_
 
 ## `chewy help [COMMAND]`
 
@@ -127,7 +127,7 @@ EXAMPLES
   $ chewy init
 ```
 
-_See code: [dist/commands/init/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/init/index.ts)_
+_See code: [dist/commands/init/index.ts](https://github.com/gochewy/cli/blob/v0.1.1-beta.1/dist/commands/init/index.ts)_
 
 ## `chewy install [FILE]`
 
@@ -148,7 +148,7 @@ EXAMPLES
   $ chewy install
 ```
 
-_See code: [dist/commands/install/index.ts](https://github.com/gochewy/cli/blob/v0.1.1/dist/commands/install/index.ts)_
+_See code: [dist/commands/install/index.ts](https://github.com/gochewy/cli/blob/v0.1.1-beta.1/dist/commands/install/index.ts)_
 
 ## `chewy plugins`
 
