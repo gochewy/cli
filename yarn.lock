@@ -244,6 +244,22 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@gochewy/lib@https://github.com/gochewy/lib.git#a24937a":
+  version "0.1.1"
+  resolved "https://github.com/gochewy/lib.git#a24937afe3c911c6faf200798dc48a681336a684"
+  dependencies:
+    "@types/fs-extra" "^9.0.13"
+    "@types/js-yaml" "^4.0.5"
+    "@types/rmfr" "^2.0.1"
+    colorette "^2.0.19"
+    dugite "^2.1.0"
+    find-up "^5.0.0"
+    fs-extra "^10.1.0"
+    js-yaml "^4.1.0"
+    rmfr "^2.0.0"
+    zod "^3.19.1"
+    zod-to-json-schema "^3.19.0"
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.5.0.tgz"
@@ -1438,21 +1454,6 @@ check-error@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/check-error/-/check-error-1.0.2.tgz"
   integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
-
-"chewy-lib@file:/workspace/chewy-global/lib":
-  version "0.1.0"
-  dependencies:
-    "@types/fs-extra" "^9.0.13"
-    "@types/js-yaml" "^4.0.5"
-    "@types/rmfr" "^2.0.1"
-    chalk "^4.1.0"
-    dugite "^2.1.0"
-    find-up "^5.0.0"
-    fs-extra "^10.1.0"
-    js-yaml "^4.1.0"
-    rmfr "^2.0.0"
-    zod "^3.19.1"
-    zod-to-json-schema "^3.19.0"
 
 chokidar@3.5.2:
   version "3.5.2"

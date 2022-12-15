@@ -17,10 +17,10 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@gochewy/lib": "https://github.com/gochewy/lib.git#a24937a",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
-    "chewy-lib": "file:/workspace/chewy-global/lib",
     "colorette": "^2.0.19",
     "zod": "^3.20.2"
   },
