@@ -17,11 +17,13 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@gochewy/lib": "https://github.com/gochewy/lib.git#a24937a",
+    "@gochewy/lib": "https://github.com/gochewy/lib.git#0.1.1-branch",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
+    "@types/inquirer": "^8",
     "colorette": "^2.0.19",
+    "inquirer": "^8",
     "zod": "^3.20.2"
   },
   "devDependencies": {

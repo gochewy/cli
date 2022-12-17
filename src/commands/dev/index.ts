@@ -1,6 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 
-export default class DevIndex extends Command {
+export default class Dev extends Command {
   static description = 'describe the command here'
 
   static examples = [
@@ -17,7 +17,7 @@ export default class DevIndex extends Command {
   static args = [{name: 'file'}]
 
   public async run(): Promise<void> {
-    const {args, flags} = await this.parse(DevIndex)
+    const {args, flags} = await this.parse(Dev)
 
     const name = flags.name ?? 'world'
     this.log(`hello ${name} from /workspace/chewy-global/cli/src/commands/dev/index.ts`)
