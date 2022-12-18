@@ -1,4 +1,4 @@
-import Chewy from '@gochewy/lib/dist'
+import * as Chewy from '@gochewy/lib/dist'
 import {Command, Flags} from '@oclif/core'
 import * as colorette from 'colorette'
 import * as inquirer from 'inquirer'
@@ -34,7 +34,7 @@ const pathPrompt = async (opts: PathPromptOptions) => {
       default: defaultValue,
     },
   ])
-  return answers.path
+  return answers.path as string
 }
 
 export default class Init extends Command {
@@ -56,20 +56,33 @@ export default class Init extends Command {
     const {args, flags} = await this.parse(Init)
     const {name, path} = flags
 
-    let actualName = name || args?.name
+    let actualName: string | undefined = name || args?.name
 
     if (!actualName) {
       actualName = await namePrompt()
     }
 
-    let actualPath = path || actualName
+    if (!actualName) {
+      throw new Error('Could not construct app name.')
+    }
+
+    let actualPath: string | undefined = path || actualName
 
     if (!path) {
       actualPath = await pathPrompt({defaultValue: actualName})
     }
 
+    if (!actualPath) {
+      throw new Error('Could not construct installation path.')
+    }
+
     Chewy.utils.resourceNameSchema.parse(actualName)
-    Chewy.commands.install.installRoot(actualPath, {name: actualName})
+    Chewy.commands.install.installRoot(actualPath, {
+      name: actualName,
+      chewy: {
+        version: Chewy.constants.CHEWY_VERSION,
+      },
+    })
     console.log(`${colorette.green('✔')} ${colorette.bold('Success!')} Project ${colorette.bold(actualName)} installed to ${colorette.bold(actualPath)}`)
     console.log(`🐆 ${colorette.bold('Next steps:')}\n${colorette.bgWhite(`cd ${actualPath} && chewy dev start`)}`)
   }
