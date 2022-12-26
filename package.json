@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@gochewy/lib": "https://github.com/gochewy/lib.git#0.1.1-branch",
+    "@gochewy/lib": "^0.1.1-beta.6",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",

@@ -1,7 +1,8 @@
-import * as Chewy from '@gochewy/lib/dist'
-import {Command, Flags} from '@oclif/core'
+import {config, constants, project, state, utils} from '@gochewy/lib'
+import {CliUx, Command, Flags} from '@oclif/core'
 import * as colorette from 'colorette'
 import * as inquirer from 'inquirer'
+import {resolve} from 'node:path'
 
 const namePrompt = async () => {
   const answers = await inquirer.prompt([
@@ -10,7 +11,7 @@ const namePrompt = async () => {
       default: 'chewy-project',
       name: 'name',
       validate: (input: any) => {
-        const parsed = Chewy.utils.resourceNameSchema.safeParse(input)
+        const parsed = utils.resourceNameSchema.safeParse(input)
         if (!parsed.success) {
           return parsed.error.issues.map(issue => issue.message).join('\n')
         }
@@ -38,7 +39,7 @@ const pathPrompt = async (opts: PathPromptOptions) => {
 }
 
 export default class Init extends Command {
-  static description = 'describe the command here'
+  static description = 'Command to initialize a chewy project.'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
@@ -76,13 +77,21 @@ export default class Init extends Command {
       throw new Error('Could not construct installation path.')
     }
 
-    Chewy.utils.resourceNameSchema.parse(actualName)
-    Chewy.commands.install.installRoot(actualPath, {
+    utils.resourceNameSchema.parse(actualName)
+    CliUx.ux.action.start(`Configuring ${colorette.bold(actualPath)}`)
+    await project.installRoot(actualPath, {
       name: actualName,
       chewy: {
-        version: Chewy.constants.CHEWY_VERSION,
+        version: constants.CHEWY_VERSION,
       },
     })
+
+    CliUx.ux.action.start('Installing required components')
+    state.setWorkingDirectory(resolve(actualPath))
+
+    const {requiredComponents} = config.component
+    
+
     console.log(`${colorette.green('✔')} ${colorette.bold('Success!')} Project ${colorette.bold(actualName)} installed to ${colorette.bold(actualPath)}`)
     console.log(`🐆 ${colorette.bold('Next steps:')}\n${colorette.bgWhite(`cd ${actualPath} && chewy dev start`)}`)
   }

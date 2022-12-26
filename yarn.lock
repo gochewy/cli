@@ -232,9 +232,10 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@gochewy/lib@https://github.com/gochewy/lib.git#0.1.1-branch":
-  version "0.1.1-branch.4"
-  resolved "https://github.com/gochewy/lib.git#981fb18adabaa97fa129bebead0fd120343627ea"
+"@gochewy/lib@^0.1.1-beta.6":
+  version "0.1.1-beta.6"
+  resolved "https://registry.yarnpkg.com/@gochewy/lib/-/lib-0.1.1-beta.6.tgz#037b3afb683748d9f18d936962341147f9fcf56e"
+  integrity sha512-QVFgbR9Hgok+TQqUwTzTMKVBYd5qZyRuOZaxBSgfWb83TXLOCCplkn3VEbzQFpScU2AKObfuNN3wZwwe74/Gpw==
   dependencies:
     "@types/fs-extra" "^9.0.13"
     "@types/js-yaml" "^4.0.5"
