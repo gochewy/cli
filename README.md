@@ -1,5 +1,4 @@
-oclif-hello-world
-=================
+# oclif-hello-world
 
 oclif example Hello World CLI
 
@@ -10,11 +9,15 @@ oclif example Hello World CLI
 [![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @gochewy/cli
 $ chewy COMMAND
@@ -26,23 +29,27 @@ USAGE
   $ chewy COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`chewy create [FILE]`](#chewy-create-file)
-* [`chewy dev [FILE]`](#chewy-dev-file)
-* [`chewy help [COMMAND]`](#chewy-help-command)
-* [`chewy init [PATH]`](#chewy-init-path)
-* [`chewy install [FILE]`](#chewy-install-file)
-* [`chewy plugins`](#chewy-plugins)
-* [`chewy plugins:install PLUGIN...`](#chewy-pluginsinstall-plugin)
-* [`chewy plugins:inspect PLUGIN...`](#chewy-pluginsinspect-plugin)
-* [`chewy plugins:install PLUGIN...`](#chewy-pluginsinstall-plugin-1)
-* [`chewy plugins:link PLUGIN`](#chewy-pluginslink-plugin)
-* [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin)
-* [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin-1)
-* [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin-2)
-* [`chewy plugins update`](#chewy-plugins-update)
+
+- [`chewy create [FILE]`](#chewy-create-file)
+- [`chewy dev [FILE]`](#chewy-dev-file)
+- [`chewy help [COMMAND]`](#chewy-help-command)
+- [`chewy init [PATH]`](#chewy-init-path)
+- [`chewy install [FILE]`](#chewy-install-file)
+- [`chewy plugins`](#chewy-plugins)
+- [`chewy plugins:install PLUGIN...`](#chewy-pluginsinstall-plugin)
+- [`chewy plugins:inspect PLUGIN...`](#chewy-pluginsinspect-plugin)
+- [`chewy plugins:install PLUGIN...`](#chewy-pluginsinstall-plugin-1)
+- [`chewy plugins:link PLUGIN`](#chewy-pluginslink-plugin)
+- [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin)
+- [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin-1)
+- [`chewy plugins:uninstall PLUGIN...`](#chewy-pluginsuninstall-plugin-2)
+- [`chewy plugins update`](#chewy-plugins-update)
 
 ## `chewy create [FILE]`
 
@@ -201,7 +208,7 @@ ALIASES
   $ chewy plugins add
 
 EXAMPLES
-  $ chewy plugins:install myplugin 
+  $ chewy plugins:install myplugin
 
   $ chewy plugins:install https://github.com/someuser/someplugin
 
@@ -261,7 +268,7 @@ ALIASES
   $ chewy plugins add
 
 EXAMPLES
-  $ chewy plugins:install myplugin 
+  $ chewy plugins:install myplugin
 
   $ chewy plugins:install https://github.com/someuser/someplugin
 
@@ -379,4 +386,5 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
+
 <!-- commandsstop -->
