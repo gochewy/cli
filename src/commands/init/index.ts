@@ -1,4 +1,11 @@
-import {config, constants, project, state, utils} from '@gochewy/lib'
+import {
+  config,
+  constants,
+  project,
+  state,
+  utils,
+  components,
+} from '@gochewy/lib'
 import {CliUx, Command, Flags} from '@oclif/core'
 import * as colorette from 'colorette'
 import * as inquirer from 'inquirer'
@@ -39,19 +46,26 @@ const pathPrompt = async (opts: PathPromptOptions) => {
 }
 
 export default class Init extends Command {
-  static description = 'Command to initialize a chewy project.'
+  static description = 'Command to initialize a chewy project.';
 
-  static examples = [
-    '<%= config.bin %> <%= command.id %>',
-  ]
+  static examples = ['<%= config.bin %> <%= command.id %>'];
 
   static flags = {
     // flag with a value (-n, --name=VALUE)
-    name: Flags.string({char: 'n', description: 'project name (kebab-cased)'}),
+    name: Flags.string({
+      char: 'n',
+      description: 'project name (kebab-cased)',
+    }),
     path: Flags.string({char: 'p', description: 'path to install to'}),
-  }
+  };
 
-  static args = [{name: 'name', description: 'kebab-cased name of project, which will also be install directory'}]
+  static args = [
+    {
+      name: 'name',
+      description:
+        'kebab-cased name of project, which will also be install directory',
+    },
+  ];
 
   public async run(): Promise<void> {
     const {args, flags} = await this.parse(Init)
@@ -89,11 +103,32 @@ export default class Init extends Command {
     CliUx.ux.action.start('Installing required components')
     state.setWorkingDirectory(resolve(actualPath))
 
-    const {requiredComponents} = config.component
-    
+    const {requiredComponents, componentSources} = config.component
 
-    console.log(`${colorette.green('✔')} ${colorette.bold('Success!')} Project ${colorette.bold(actualName)} installed to ${colorette.bold(actualPath)}`)
-    console.log(`🐆 ${colorette.bold('Next steps:')}\n${colorette.bgWhite(`cd ${actualPath} && chewy dev start`)}`)
+    for (const component of requiredComponents) {
+      CliUx.ux.action.start(`Installing ${colorette.bold(component)}`)
+      // eslint-disable-next-line no-await-in-loop
+      await components.installComponent({
+        url: componentSources[component],
+        name: component,
+        version: constants.CHEWY_VERSION,
+        autoInstallDependencies: true,
+      })
+    }
+
+    CliUx.ux.action.stop()
+
+    console.log(
+      `${colorette.green('✔')} ${colorette.bold(
+        'Success!',
+      )} Project ${colorette.bold(actualName)} installed to ${colorette.bold(
+        actualPath,
+      )}`,
+    )
+    console.log(
+      `🐆 ${colorette.bold('Next steps:')}\n${colorette.bgWhite(
+        `cd ${actualPath} && chewy dev start`,
+      )}`,
+    )
   }
 }
-
