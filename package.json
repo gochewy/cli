@@ -18,7 +18,7 @@
   ],
   "dependencies": {
     "@gochewy/lib": "^0.1.1-beta.6",
-    "@oclif/core": "^1.21.0",
+    "@oclif/core": "^1.23.1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
     "@types/inquirer": "^8",
