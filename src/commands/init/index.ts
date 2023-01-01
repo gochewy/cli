@@ -57,6 +57,7 @@ export default class Init extends Command {
       description: 'project name (kebab-cased)',
     }),
     path: Flags.string({char: 'p', description: 'path to install to'}),
+    nonInteractive: Flags.boolean({char: 'n', description: 'run in non-interactive mode'}),
   };
 
   static args = [
@@ -69,11 +70,11 @@ export default class Init extends Command {
 
   public async run(): Promise<void> {
     const {args, flags} = await this.parse(Init)
-    const {name, path} = flags
+    const {name, path, nonInteractive} = flags
 
     let actualName: string | undefined = name || args?.name
 
-    if (!actualName) {
+    if (!actualName && nonInteractive) {
       actualName = await namePrompt()
     }
 
@@ -83,7 +84,7 @@ export default class Init extends Command {
 
     let actualPath: string | undefined = path || actualName
 
-    if (!path) {
+    if (!path && nonInteractive) {
       actualPath = await pathPrompt({defaultValue: actualName})
     }
 

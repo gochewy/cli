@@ -2,16 +2,16 @@ import {expect, test} from '@oclif/test'
 
 describe('init', () => {
   test
-  .stdout()
+  .stderr()
   .command(['init'])
-  .it('runs hello', ctx => {
-    expect(ctx.stdout).to.contain('hello world')
+  .catch(error => {
+    expect(error.message).to.contain('Could not construct app name.')
   })
 
   test
-  .stdout()
-  .command(['init', '--name', 'jeff'])
-  .it('runs hello --name jeff', ctx => {
-    expect(ctx.stdout).to.contain('hello jeff')
+  .stderr()
+  .command(['init', 'test-project'])
+  .catch(error => {
+    expect(error.message).to.contain('Could not construct installation path.')
   })
 })
