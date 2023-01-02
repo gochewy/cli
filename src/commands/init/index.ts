@@ -5,131 +5,134 @@ import {
   state,
   utils,
   components,
-} from '@gochewy/lib'
-import {CliUx, Command, Flags} from '@oclif/core'
-import * as colorette from 'colorette'
-import * as inquirer from 'inquirer'
-import {resolve} from 'node:path'
+} from "@gochewy/lib";
+import { CliUx, Command, Flags } from "@oclif/core";
+import * as colorette from "colorette";
+import * as inquirer from "inquirer";
+import { resolve } from "node:path";
 
 const namePrompt = async () => {
   const answers = await inquirer.prompt([
     {
-      type: 'input',
-      default: 'chewy-project',
-      name: 'name',
+      type: "input",
+      default: "chewy-project",
+      name: "name",
       validate: (input: any) => {
-        const parsed = utils.resourceNameSchema.safeParse(input)
+        const parsed = utils.resourceNameSchema.safeParse(input);
         if (!parsed.success) {
-          return parsed.error.issues.map(issue => issue.message).join('\n')
+          return parsed.error.issues.map((issue) => issue.message).join("\n");
         }
 
-        return true
+        return true;
       },
     },
-  ])
-  return answers.name
-}
+  ]);
+  return answers.name;
+};
 
 interface PathPromptOptions {
   defaultValue?: string;
 }
 const pathPrompt = async (opts: PathPromptOptions) => {
-  const {defaultValue = 'chewy-project'} = opts
+  const { defaultValue = "chewy-project" } = opts;
   const answers = await inquirer.prompt([
     {
-      type: 'input',
-      name: 'path',
+      type: "input",
+      name: "path",
       default: defaultValue,
     },
-  ])
-  return answers.path as string
-}
+  ]);
+  return answers.path as string;
+};
 
 export default class Init extends Command {
-  static description = 'Command to initialize a chewy project.';
+  static description = "Command to initialize a chewy project.";
 
-  static examples = ['<%= config.bin %> <%= command.id %>'];
+  static examples = ["<%= config.bin %> <%= command.id %>"];
 
   static flags = {
     // flag with a value (-n, --name=VALUE)
     name: Flags.string({
-      char: 'n',
-      description: 'project name (kebab-cased)',
+      char: "n",
+      description: "project name (kebab-cased)",
     }),
-    path: Flags.string({char: 'p', description: 'path to install to'}),
-    nonInteractive: Flags.boolean({char: 'n', description: 'run in non-interactive mode'}),
+    path: Flags.string({ char: "p", description: "path to install to" }),
+    nonInteractive: Flags.boolean({
+      char: "n",
+      description: "run in non-interactive mode",
+    }),
   };
 
   static args = [
     {
-      name: 'name',
+      name: "name",
       description:
-        'kebab-cased name of project, which will also be install directory',
+        "kebab-cased name of project, which will also be install directory",
     },
   ];
 
   public async run(): Promise<void> {
-    const {args, flags} = await this.parse(Init)
-    const {name, path, nonInteractive} = flags
+    const { args, flags } = await this.parse(Init);
+    const { name, path, nonInteractive } = flags;
 
-    let actualName: string | undefined = name || args?.name
+    let actualName: string | undefined = name || args?.name;
 
     if (!actualName && nonInteractive) {
-      actualName = await namePrompt()
+      actualName = await namePrompt();
     }
 
     if (!actualName) {
-      throw new Error('Could not construct app name.')
+      throw new Error("Could not construct app name.");
     }
 
-    let actualPath: string | undefined = path || actualName
+    let actualPath: string | undefined = path || actualName;
 
     if (!path && nonInteractive) {
-      actualPath = await pathPrompt({defaultValue: actualName})
+      actualPath = await pathPrompt({ defaultValue: actualName });
     }
 
     if (!actualPath) {
-      throw new Error('Could not construct installation path.')
+      throw new Error("Could not construct installation path.");
     }
 
-    utils.resourceNameSchema.parse(actualName)
-    CliUx.ux.action.start(`Configuring ${colorette.bold(actualPath)}`)
+    utils.resourceNameSchema.parse(actualName);
+    CliUx.ux.action.start(`Configuring ${colorette.bold(actualPath)}`);
     await project.installRoot(actualPath, {
       name: actualName,
       chewy: {
         version: constants.CHEWY_VERSION,
       },
-    })
+    });
 
-    CliUx.ux.action.start('Installing required components')
-    state.setWorkingDirectory(resolve(actualPath))
+    CliUx.ux.action.start("Installing required components");
+    state.setWorkingDirectory(resolve(actualPath));
 
-    const {requiredComponents, componentSources} = config.component
+    const { requiredComponents, componentSources } = config.component;
 
     for (const component of requiredComponents) {
-      CliUx.ux.action.start(`Installing ${colorette.bold(component)}`)
+      CliUx.ux.action.start(`Installing ${colorette.bold(component)}`);
       // eslint-disable-next-line no-await-in-loop
       await components.installComponent({
         url: componentSources[component],
         name: component,
         version: constants.CHEWY_VERSION,
         autoInstallDependencies: true,
-      })
+      });
     }
 
-    CliUx.ux.action.stop()
+    CliUx.ux.action.stop();
 
     console.log(
-      `${colorette.green('✔')} ${colorette.bold(
-        'Success!',
+      `${colorette.green("✔")} ${colorette.bold(
+        "Success!"
       )} Project ${colorette.bold(actualName)} installed to ${colorette.bold(
-        actualPath,
-      )}`,
-    )
+        actualPath
+      )}`
+    );
     console.log(
-      `🐆 ${colorette.bold('Next steps:')}\n${colorette.bgWhite(
-        `cd ${actualPath} && chewy dev start`,
-      )}`,
-    )
+      `🐆 ${colorette.bold("Next steps:")}\n${colorette.bgWhite(
+        `cd ${actualPath} && chewy dev start`
+      )}`
+    );
   }
 }
