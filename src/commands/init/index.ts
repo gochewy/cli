@@ -9,6 +9,7 @@ import {
 import {CliUx, Command, Flags} from '@oclif/core'
 import * as colorette from 'colorette'
 import * as inquirer from 'inquirer'
+import {existsSync} from 'node:fs'
 import {resolve} from 'node:path'
 
 const namePrompt = async () => {
@@ -90,6 +91,10 @@ export default class Init extends Command {
 
     if (!actualPath) {
       throw new Error('Could not construct installation path.')
+    }
+
+    if (existsSync(actualPath)) {
+      throw new Error(colorette.red(`Path ${actualPath} already exists.`))
     }
 
     utils.resourceNameSchema.parse(actualName)
