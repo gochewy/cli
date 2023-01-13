@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@gochewy/lib": "^0.1.1-beta.7",
+    "@gochewy/lib": "file:../lib",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
@@ -66,7 +66,10 @@
     "prepack": "yarn build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lup": "chewy-cc rebuild lib && yarn upgrade @gochewy/lib",
+    "llocal": "yarn remove @gochewy/lib && yarn add file:../lib",
+    "lprod": "yarn remove @gochewy/lib && yarn add @gochewy/lib"
   },
   "engines": {
     "node": ">=12.0.0"
