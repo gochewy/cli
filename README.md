@@ -1,13 +1,13 @@
-oclif-hello-world
+Chewy CLI
 =================
 
-oclif example Hello World CLI
+Welcome to the Chewy Stack. This CLI is probably what you'll want to get started!
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![CircleCI](https://circleci.com/gh/oclif/hello-world/tree/main.svg?style=shield)](https://circleci.com/gh/oclif/hello-world/tree/main)
-[![Downloads/week](https://img.shields.io/npm/dw/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
-[![License](https://img.shields.io/npm/l/oclif-hello-world.svg)](https://github.com/oclif/hello-world/blob/main/package.json)
+[![chewy](https://img.shields.io/badge/chewy-get%20started-brightgreen.svg)](https://gochewy.io)
+[![Version](https://img.shields.io/npm/v/@gochewy/cli.svg)](https://www.npmjs.com/package/@gochewy/cli)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/gochewy/cli/onRelease.yml)](https://github.com/gochewy/cli)
+[![Downloads/week](https://img.shields.io/npm/dw/@gochewy/cli.svg)](https://npmjs.org/package/@gochewy/cli)
+[![License](https://img.shields.io/npm/l/@gochewy/cli.svg)](https://www.npmjs.com/package/@gochewy/cli)
 
 <!-- toc -->
 * [Usage](#usage)
