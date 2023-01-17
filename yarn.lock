@@ -243,9 +243,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@gochewy/lib@^0.1.1-beta.13":
-  version "0.1.1-beta.13"
-  resolved "https://registry.yarnpkg.com/@gochewy/lib/-/lib-0.1.1-beta.13.tgz#6d8f0586f4c05626c4dd08c9e2df28802cbdcc74"
-  integrity sha512-NpWoqZ7Rlm5C8nq/Yzexvt736MsezpVT6uZOnT7Z/tJtEwUqnkD5qCW8Rp1+UExpUX4IFLOhb7FaUTM8X+a4Zw==
+  version "0.1.1-beta.16"
+  resolved "https://registry.yarnpkg.com/@gochewy/lib/-/lib-0.1.1-beta.16.tgz#9d70d02a50f095630ea84632f090b7728876bd2b"
+  integrity sha512-4nneGJxFFEpVDapOPj9kWw96qmuw4/+Ph9s0y/29SfyPIzgrgwkd68MLEKasVZS2IwAJarYCVg5vMXHTfedOWg==
   dependencies:
     "@types/fs-extra" "^9.0.13"
     "@types/js-yaml" "^4.0.5"
@@ -2149,9 +2149,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 dugite@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/dugite/-/dugite-2.1.0.tgz#6f50c2244e57aaac2f36440aa7289815c73a688c"
-  integrity sha512-4l4jJz5zC6Q+/8doQNQZ9Ss3rmnO/JCHfOmQO+zGv+TIOUXimzfS02RvUOuFpEhZuaFTeFBSuK6ll/02TX3SxA==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/dugite/-/dugite-2.2.0.tgz#6678a463acd2e3e489736555eb2baf4224d087db"
+  integrity sha512-cCzmtNj0UNglm94gCgw0KkEuzlVp2DhRJ/rwyQVXju/jFQTE1WWBVe5YCSanCIUSyu80E1JqQvCvQ9ywcmRb1Q==
   dependencies:
     progress "^2.0.3"
     tar "^6.1.11"
