@@ -41,7 +41,8 @@
     "shx": "^0.3.3",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "version-bump-prompt": "^6.1.0"
   },
   "oclif": {
     "bin": "chewy",
@@ -69,7 +70,8 @@
     "prepare": "husky install",
     "lup": "chewy-cc rebuild lib && yarn upgrade @gochewy/lib",
     "llocal": "yarn remove @gochewy/lib && yarn add file:../lib",
-    "lprod": "yarn remove @gochewy/lib && yarn add @gochewy/lib"
+    "lprod": "yarn remove @gochewy/lib && yarn add @gochewy/lib",
+    "bump-tag": "bump --tag --commit --push"
   },
   "engines": {
     "node": ">=12.0.0"
