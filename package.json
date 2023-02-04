@@ -20,7 +20,7 @@
     "@gochewy/lib": "^0.1.1-beta.13",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.1.7",
+    "@oclif/plugin-plugins": "^2.3.0",
     "@types/inquirer": "^8",
     "colorette": "^2.0.19",
     "inquirer": "^8",
