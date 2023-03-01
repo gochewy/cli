@@ -120,9 +120,24 @@ export default class Init extends Command {
         version: constants.CHEWY_VERSION,
         autoInstallDependencies: true,
       })
+      CliUx.ux.action.stop()
     }
 
-    CliUx.ux.action.stop()
+    // ask user if they want to initialize components
+    const answers = await inquirer.prompt([
+      {type: 'confirm', name: 'init', message: 'Initialize components?', default: true},
+    ])
+
+    if (answers.init) {
+      CliUx.ux.action.start('Initializing components')
+      await Promise.all(
+        requiredComponents.map(async component => {
+          await components.initializeComponentCommands({name: component})
+          await components.initializeComponent({name: component})
+        }),
+      )
+      CliUx.ux.action.stop()
+    }
 
     console.log(
       `${colorette.green('✔')} ${colorette.bold(
