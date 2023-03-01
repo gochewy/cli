@@ -5,6 +5,7 @@ import {
   state,
   utils,
   components,
+  environments,
 } from '@gochewy/lib'
 import {CliUx, Command, Flags} from '@oclif/core'
 import * as colorette from 'colorette'
@@ -122,6 +123,11 @@ export default class Init extends Command {
       })
       CliUx.ux.action.stop()
     }
+
+    // create dev environment
+    CliUx.ux.action.start('Creating dev environment')
+    environments.createEnvironment(constants.CHEWY_DEV_ENV_NAME)
+    CliUx.ux.action.stop()
 
     // ask user if they want to initialize components
     const answers = await inquirer.prompt([
