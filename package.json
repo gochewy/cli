@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@gochewy/lib": "^0.1.1-beta.18",
+    "@gochewy/lib": "^0.1.1-beta.19",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
@@ -69,7 +69,7 @@
     "version": "oclif readme && git add README.md",
     "prepare": "husky install",
     "lup": "chewy-cc rebuild lib && yarn upgrade @gochewy/lib",
-    "llocal": "yarn remove @gochewy/lib && yarn add file:../lib",
+    "llocal": "yarn remove @gochewy/lib && yarn add file:/workspace/chewy-global/lib",
     "lprod": "yarn remove @gochewy/lib && yarn add @gochewy/lib",
     "bump-tag": "bump --tag --commit --push"
   },

@@ -23,7 +23,10 @@ export default class Command extends OclifCommand {
     }
 
     const cwd = chewy.files.getComponentCommandsDir({name: component})
-    const fullCommand = ['yarn', 'run', 'commands', ...command].join(' ')
+
+    const commandsCommand = process.env.NODE_ENV === 'development' ? 'commands-dev' : 'commands'
+
+    const fullCommand = ['yarn', 'run', commandsCommand, ...command].join(' ')
     console.log(`Running ${fullCommand} in ${cwd}`)
     execSync(fullCommand, {stdio: 'inherit', cwd})
   }
