@@ -143,7 +143,7 @@ export default class Init extends Command {
 
     CliUx.ux.action.start('Committing...')
     GitProcess.exec(['add', '.'], actualPath)
-    GitProcess.exec(['commit', '-m', 'Initial commit.'], actualPath)
+    GitProcess.exec(['commit', '-m', '"Initial commit."'], actualPath)
     CliUx.ux.action.stop()
 
     console.log(
