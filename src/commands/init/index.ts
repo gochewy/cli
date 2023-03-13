@@ -9,6 +9,7 @@ import {
 } from '@gochewy/lib'
 import {CliUx, Command, Flags} from '@oclif/core'
 import * as colorette from 'colorette'
+import {GitProcess} from 'dugite'
 import * as inquirer from 'inquirer'
 import {existsSync} from 'node:fs'
 import {resolve} from 'node:path'
@@ -129,21 +130,21 @@ export default class Init extends Command {
     environments.createEnvironment(constants.CHEWY_DEV_ENV_NAME)
     CliUx.ux.action.stop()
 
-    // const answers = await inquirer.prompt([
-    //   {type: 'confirm', name: 'init', message: 'Initialize components?', default: true},
-    // ])
-
-    // if (answers.init) {
     CliUx.ux.action.start('Initializing components')
+    const allComponents = await components.getComponentList()
     await Promise.all(
-      requiredComponents.map(async component => {
-        await components.initializeComponentCommands({name: component})
-        await components.initializeComponentDeployment({name: component})
-        await components.initializeComponent({name: component})
+      allComponents.map(async component => {
+        await components.initializeComponentCommands(component)
+        await components.initializeComponentDeployment(component)
+        await components.initializeComponent(component)
       }),
     )
     CliUx.ux.action.stop()
-    // }
+
+    CliUx.ux.action.start('Committing...')
+    GitProcess.exec(['add', '.'], actualPath)
+    GitProcess.exec(['commit', '-m', 'Initial commit.'], actualPath)
+    CliUx.ux.action.stop()
 
     console.log(
       `${colorette.green('✔')} ${colorette.bold(

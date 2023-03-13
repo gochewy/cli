@@ -1,4 +1,5 @@
 import {Command, Flags} from '@oclif/core'
+import * as chewy from '@gochewy/lib'
 
 export default class DevStart extends Command {
   static description = 'describe the command here'
@@ -17,12 +18,7 @@ export default class DevStart extends Command {
   static args = [{name: 'file'}]
 
   public async run(): Promise<void> {
-    const {args, flags} = await this.parse(DevStart)
-
-    const name = flags.name ?? 'world'
-    this.log(`hello ${name} from /workspace/chewy-global/cli/src/commands/dev/start.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+    const graph = chewy.project.getDependencyGraph()
+    console.log(graph.entryNodes())
   }
 }

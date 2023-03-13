@@ -17,12 +17,13 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@gochewy/lib": "^0.1.1-beta.20",
+    "@gochewy/lib": "^0.1.1-beta.23",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
     "@types/inquirer": "^8",
     "colorette": "^2.0.19",
+    "dugite": "^2.4.0",
     "inquirer": "^8",
     "zod": "^3.20.2"
   },
