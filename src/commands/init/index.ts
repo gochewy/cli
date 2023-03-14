@@ -110,7 +110,8 @@ export default class Init extends Command {
     })
 
     CliUx.ux.action.start('Installing required components')
-    state.setWorkingDirectory(resolve(actualPath))
+    const absolutePath = resolve(actualPath)
+    state.setWorkingDirectory(absolutePath)
 
     const {requiredComponents, componentSources} = config.component
 
@@ -142,8 +143,8 @@ export default class Init extends Command {
     CliUx.ux.action.stop()
 
     CliUx.ux.action.start('Committing...')
-    GitProcess.exec(['add', '.'], actualPath)
-    GitProcess.exec(['commit', '-m', '"Initial commit."'], actualPath)
+    GitProcess.exec(['add', '.'], absolutePath)
+    GitProcess.exec(['commit', '-m', '"Initial commit."'], absolutePath)
     CliUx.ux.action.stop()
 
     console.log(
