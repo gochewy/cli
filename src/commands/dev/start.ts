@@ -18,7 +18,6 @@ export default class DevStart extends Command {
   static args = [{name: 'file'}]
 
   public async run(): Promise<void> {
-    const graph = chewy.project.getDependencyGraph()
-    console.log(graph.entryNodes())
+    this.config.runCommand('deploy', [chewy.constants.CHEWY_DEV_ENV_NAME])
   }
 }

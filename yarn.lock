@@ -242,10 +242,10 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@gochewy/lib@^0.1.1-beta.30":
-  version "0.1.1-beta.30"
-  resolved "https://registry.yarnpkg.com/@gochewy/lib/-/lib-0.1.1-beta.30.tgz#ad1c1c2ab187a11277cd70a0a703ab657c8a3cf9"
-  integrity sha512-gCzBJcTkdQmzfWDcELbVaEimFcbzDUIWT9FxMU7X1+SQMPJiITUZdU/xctjA9OEgeCkrniBWAWwsxhc+Md0+6w==
+"@gochewy/lib@0.1.1-beta.31":
+  version "0.1.1-beta.31"
+  resolved "https://registry.yarnpkg.com/@gochewy/lib/-/lib-0.1.1-beta.31.tgz#c4e4c6fd1fc645db543075321c130901eea780ad"
+  integrity sha512-vtuXRe8h9atzxHSc4HZtkG+nqZxHu8X10/1H0i6A0V5KBPnjn+G6d6YxkrcXKxPHNT6x4H2suqU/T5ED6zY2Jg==
   dependencies:
     "@types/fs-extra" "^9.0.13"
     "@types/js-yaml" "^4.0.5"
@@ -1353,6 +1353,8 @@ argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
+  dependencies:
+    sprintf-js "~1.0.2"
 
 argparse@^2.0.1:
   version "2.0.1"
@@ -5611,6 +5613,9 @@ validate-npm-package-license@^3.0.1:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
   integrity sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
+  dependencies:
+    spdx-correct "^3.0.0"
+    spdx-expression-parse "^3.0.0"
 
 validate-npm-package-name@^3.0.0:
   version "3.0.0"
