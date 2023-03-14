@@ -8,15 +8,6 @@ export default class DevStart extends Command {
     '<%= config.bin %> <%= command.id %>',
   ]
 
-  static flags = {
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: Flags.boolean({char: 'f'}),
-  }
-
-  static args = [{name: 'file'}]
-
   public async run(): Promise<void> {
     this.config.runCommand('deploy', [chewy.constants.CHEWY_DEV_ENV_NAME])
   }
