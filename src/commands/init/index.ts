@@ -135,13 +135,11 @@ export default class Init extends Command {
     CliUx.ux.action.start('Initializing components')
     const allComponents = await components.getComponentList()
 
-    await Promise.all(
-      allComponents.map(async component => {
-        await components.initializeComponentCommands(component)
-        await components.initializeComponentDeployment(component)
-        await components.initializeComponent(component)
-      }),
-    )
+    for (const component of allComponents) {
+      await components.initializeComponentCommands(component)
+      await components.initializeComponentDeployment(component)
+      await components.initializeComponent(component)
+    }
 
     CliUx.ux.action.stop()
 
