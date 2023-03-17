@@ -242,10 +242,8 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@gochewy/lib@^0.1.1-beta.33":
-  version "0.1.1-beta.33"
-  resolved "https://registry.yarnpkg.com/@gochewy/lib/-/lib-0.1.1-beta.33.tgz#22007ef36c3085d139628c385cf106df30929d09"
-  integrity sha512-4ta7oiwwqpsgNYlMILqpP02mKClYbIOtb9kVE6tK4vgNlGgps6iZEQkRRmrnZH8qF8gIL1umpn96X44j145xIA==
+"@gochewy/lib@file:../lib":
+  version "0.1.1-beta.34"
   dependencies:
     "@types/fs-extra" "^9.0.13"
     "@types/js-yaml" "^4.0.5"
