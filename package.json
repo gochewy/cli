@@ -17,7 +17,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@gochewy/lib": "file:/workspace/chewy-global/lib",
+    "@gochewy/lib": "^0.1.1-beta.35",
     "@oclif/core": "^1.21.0",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.1.7",
